@@ -16,8 +16,6 @@ type Closeio struct {
 	Token string
 }
 
-type Opportunity struct {
-}
 type Contact struct {
 	Name   string  `json:"name"`
 	Title  string  `json:"title"`
