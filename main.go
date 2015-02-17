@@ -19,8 +19,8 @@ type Closeio struct {
 type Contact struct {
 	Name   string  `json:"name"`
 	Title  string  `json:"title"`
-	Emails []Email `json:"emails"`
-	Phones []Phone `json:"phones"`
+	Emails *[]Email `json:"emails"`
+	Phones *[]Phone `json:"phones"`
 }
 type ContactResp struct {
 	Name           string      `json:"name"`
