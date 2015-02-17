@@ -74,7 +74,7 @@ func marshal(data interface{}) (jsonD []byte, err error) {
 }
 func request(urlPart string,  reqType string, key string, data []byte) (resp *http.Response, err error) {
 	client := &http.Client{}
-	url := baseURL + "/"+version + "/"+ urlPart + "/"
+	url := baseURL + "/"+version + "/"+ urlPart
 	fmt.Println(url)
 	body := bytes.NewBuffer(data)
 	req, err := http.NewRequest(reqType, url, body)
