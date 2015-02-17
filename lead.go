@@ -4,12 +4,13 @@ import (
 	"encoding/json"
 )
 type Lead struct {
-	Name        string            `json:"name"`
-	Url         string            `json:"url"`
-	Description string            `json:"description"`
+	Name        string            `json:"name,omitempty"`
+	Url         string            `json:"url,omitempty"`
+	Description string            `json:"description,omitempty"`
 	StatusId    string            `json:"status_id,omitempty"`
+	Status string `json:"status,omitempty"`
 	Contacts    []Contact         `json:"contacts"`
-	Custom      map[string]string `json:"custom"`
+	Custom      map[string]string `json:"custom,omitempty"`
 	Addresses   []Address         `json:"addresses"`
 }
 
