@@ -5,9 +5,9 @@ import (
 
 type Task struct {
 	LeadId string `json:"lead_id"`
-	AssignedTo string `json:"assigned_to"`
+	AssignedTo string `json:"assigned_to,omitempty"`
 	Text string `json:"text"`
-	DueDate string `json:"due_date"`
+	DueDate string `json:"due_date,omitempty"`
 	IsComplete bool `json:"is_complete"`
 }
 func (c *Closeio) CreateTask(task *Task) (error) {
