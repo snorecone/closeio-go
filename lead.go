@@ -2,6 +2,7 @@ package closeio
 
 import (
 	"encoding/json"
+	"net/url"
 )
 
 type Lead struct {
@@ -49,7 +50,12 @@ func (c *Closeio) Leads(ls *LeadSearch) (l *Leads, err error) {
 	if ls == nil {
 		leadType = "lead/"
 	} else {
-		leadType = "lead/?query="+ls.Query
+		// Set query and encode
+		// TODO: Set limit, etc.
+		v := url.Values{}
+		v.Set("query", ls.Query)
+		query := v.Encode()
+		leadType = "lead/?"+query
 	}
 	resp, err := request(leadType, "GET", c.Token, nil)
 	if err != nil {
