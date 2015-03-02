@@ -55,7 +55,7 @@ func (c *Closeio) Leads(ls *LeadSearch) (l *Leads, err error) {
 		v := url.Values{}
 		v.Set("query", ls.Query)
 		query := v.Encode()
-		leadType = "lead/?"+query
+		leadType = "lead/?" + query
 	}
 	resp, err := request(leadType, "GET", c.Token, nil)
 	if err != nil {
@@ -100,4 +100,11 @@ func (c *Closeio) GetLead(id string) (l *LeadResp, err error) {
 		return nil, err
 	}
 	return &lead, nil
+}
+func (c *Closeio) DeleteLead(id string) error {
+	_, err := request("lead/"+id+"/", "DELETE", c.Token, nil)
+	if err != nil {
+		return err
+	}
+	return nil
 }
