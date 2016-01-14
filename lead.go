@@ -11,9 +11,9 @@ type Lead struct {
 	Description string            `json:"description,omitempty"`
 	StatusId    string            `json:"status_id,omitempty"`
 	Status      string            `json:"status,omitempty"`
-	Contacts    *[]Contact        `json:"contacts"`
+	Contacts    []*Contact        `json:"contacts"`
 	Custom      map[string]string `json:"custom,omitempty"`
-	Addresses   *[]Address        `json:"addresses"`
+	Addresses   []*Address        `json:"addresses"`
 }
 
 type LeadResp struct {
@@ -33,7 +33,7 @@ type LeadResp struct {
 	UpdatedBy      string             `json:"updated_by"`
 	OrganizationId string             `json:"organization_id"`
 	HtmlUrl        string             `json:"html_url"`
-	Opportunities  *[]OpportunityResp `json:"opportunities"`
+	Opportunities  []*OpportunityResp `json:"opportunities"`
 	//Tasks          []string          `json:"tasks"` // TODO: change this
 }
 type Leads struct {
